@@ -1,7 +1,5 @@
 ﻿#include <Windows.h>
 
-using namespace std;
-
 int WINAPI WinMain(
 	_In_ HINSTANCE, 
 	_In_opt_ HINSTANCE,
