@@ -1,5 +1,4 @@
-﻿#include <cstdlib>
-#include <Windows.h>
+﻿#include <Windows.h>
 
 using namespace std;
 
