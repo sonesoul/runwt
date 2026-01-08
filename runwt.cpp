@@ -6,6 +6,30 @@ int WINAPI WinMain(
 	_In_ LPSTR args, 
 	_In_ int)
 {
-	ShellExecuteA(nullptr, "open", "wt.exe", args, nullptr, SW_SHOW);
+    STARTUPINFOA si{};
+    si.cb = sizeof(si);
+
+    PROCESS_INFORMATION pi{};
+
+    char cmdLine[1024];
+    lstrcpyA(cmdLine, "wt.exe ");
+    lstrcatA(cmdLine, args);
+
+    CreateProcessA(
+        nullptr,
+        cmdLine,
+        nullptr,
+        nullptr,
+        FALSE,
+        0,
+        nullptr,
+        nullptr,
+        &si,
+        &pi
+    );
+
+    CloseHandle(pi.hThread);
+    CloseHandle(pi.hProcess);
+
 	return 0;
 }
